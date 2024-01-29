@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vérification du mot de passe</title>
+</head>
+<body>
+  <script>
+    // Définir le mot de passe correct
+    var motDePasseCorrect = "famas";
+    var nombreDeTentativesMax = 3;
+    var nombreDeTentatives = 0;
+
+    // Fonction de vérification du mot de passe
+    function verifierMotDePasse() {
+      // Demander le mot de passe à l'utilisateur
+      var motDePasse = prompt("Veuillez entrer votre mot de passe :");
+
+      // Vérifier si le mot de passe est correct
+      if (motDePasse === motDePasseCorrect) {
+        // Rediriger vers une autre page si le mot de passe est correct
+        window.location.href = "index.html";
+      } else {
+        // Incrémenter le nombre de tentatives
+        nombreDeTentatives++;
+
+        // Vérifier s'il reste des tentatives
+        if (nombreDeTentatives < nombreDeTentativesMax) {
+          // Afficher un message avec le nombre de tentatives restantes
+          alert("Mot de passe incorrect. Il vous reste " + (nombreDeTentativesMax - nombreDeTentatives) + " tentatives.");
+          // Relancer la vérification
+          verifierMotDePasse();
+        } else {
+          // Afficher un message lorsque toutes les tentatives sont épuisées
+          alert("Vous avez épuisé toutes vos tentatives. Vous restez sur cette page.");
+        }
+      }
+    }
+
+    // Appeler la fonction de vérification du mot de passe au chargement de la page
+    verifierMotDePasse();
+  </script>
+</body>
+</html> 
+<p> Si la page est refresh = block ip </p>
