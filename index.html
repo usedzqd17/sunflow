@@ -4,6 +4,61 @@
   <meta charset="UTF-8">
   <title>Ma plateforme de streaming</title>
   <link rel="stylesheet" href="dzz1.css">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ma plateforme de streaming</title>
+  <link rel="stylesheet" href="dzz1.css">
+  <style>
+    /* Votre CSS va ici */
+  </style>
+</head>
+<body>
+  <script>
+    // Définition du mot de passe
+    var motDePasse = "sadac";
+
+    // Nombre d'essais autorisés
+    var nombreEssaisAutorises = 3;
+
+    // Nombre d'essais effectués
+    var nombreEssais = 0;
+
+    // Fonction pour vérifier le mot de passe
+    function verifierMotDePasse() {
+      var motDePasseSaisi = prompt("Entrez le mot de passe :");
+
+      // Vérifier si le mot de passe est correct
+      if (motDePasseSaisi !== motDePasse) {
+        nombreEssais++;
+        if (nombreEssais >= nombreEssaisAutorises) {
+          // Bloquer l'accès en désactivant les liens
+          var movies = document.querySelectorAll('.movie');
+          movies.forEach(function(movie) {
+            movie.removeAttribute('href');
+          });
+          alert("Trop d'essais incorrects. Accès bloqué.");
+        } else {
+          alert("Mot de passe incorrect. Il vous reste " + (nombreEssaisAutorises - nombreEssais) + " essai(s).");
+          verifierMotDePasse(); // Demander à nouveau le mot de passe
+        }
+      }
+    }
+
+    // Appeler la fonction de vérification du mot de passe au chargement de la page
+    window.onload = verifierMotDePasse;
+  </script>
+  <header>
+    <h1>Streaming FR</h1>
+    <!-- Champ de recherche -->
+    <input type="text" id="searchInput" placeholder="Rechercher un film...">
+  </header>
+  <div class="movies-container">
+    <!-- Vos balises <a> pour les films vont ici -->
+  </div>
+</body>
+</html>
   
   <style>
     body {
