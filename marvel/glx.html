@@ -1,0 +1,68 @@
+
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://img.freepik.com/vecteurs-premium/epee-ange-dans-fond-noir_121930-195.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 1000vh;
+    }
+    header {
+      text-align: center;
+      color: white;
+    }
+    .movies-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .movie {
+      margin: 10px;
+      text-align: center;
+    }
+    .movie img {
+      width: 160px;
+      height: auto;
+    }
+    .movie span {
+      color: red;
+      display: block;
+    }
+  </style>
+</head>
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage de l'iframe</title>
+    <style>
+        /* Style pour l'iframe */
+        .iframe-container {
+            position: relative;
+            width: 60x; /* Largeur de l'iframe */
+            height: 500000px; /* Hauteur souhaitée de l'iframe */
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: -90px; /* Ajustez cette valeur pour modifier la partie visible */
+            left: 0;
+            width: 87%;
+            height: 880px; /* Hauteur originale de l'iframe */
+        }
+    </style>
+</head>
+<body>
+    <!-- Conteneur de l'iframe avec la partie visible modifiée -->
+    <div class="iframe-container">
+        <iframe src="https://fr.coflix.nu/film/les-gardiens-de-la-galaxie/" scrolling="no" frameborder="0" allowfullscreen webkitallowfullscreen></iframe>
+    </div>
+</body>
+</html>
