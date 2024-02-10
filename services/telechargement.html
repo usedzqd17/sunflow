@@ -76,6 +76,7 @@
     </script>
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -155,6 +156,7 @@
 </body>
 </html>
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -225,7 +227,7 @@
             var movieName = document.getElementById('movieNameSenpai').value;
             
             // Construire l'URL avec le terme de recherche
-            var searchUrl = 'https://nightflix.vip/?s=d' + encodeURIComponent(movieName);
+            var searchUrl = 'https://senpai-stream.fr/?s=' + encodeURIComponent(movieName);
             
             // Rediriger l'utilisateur vers le nouveau lien
             window.location.href = searchUrl;
@@ -233,7 +235,13 @@
     </script>
 </body>
 </html>
-    <title></title>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de film sur Night Stream</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -280,22 +288,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Recherche de film sur night stream</h1>
-        <form id="searchForm">
-            <label for="movieName">Nom du film :</label><br>
-            <input type="text" id="movieName" name="q" required><br>
-            <input type="submit" value="Rechercher">
+        <h1>Recherche de film sur Night Stream</h1>
+        <form id="searchFormNightStream">
+            <label for="movieNameNightStream">Nom du film :</label><br>
+            <input type="text" id="movieNameNightStream" name="s" required><br>
+            <input type="submit" value="Rechercher sur Night Stream">
         </form>
     </div>
 
     <script>
-        // Code JavaScript pour intercepter la soumission du formulaire
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
+        // Code JavaScript pour intercepter la soumission du formulaire Night Stream
+        document.getElementById('searchFormNightStream').addEventListener('submit', function(event) {
             // Empêcher le comportement par défaut du formulaire
             event.preventDefault();
             
             // Récupérer la valeur saisie par l'utilisateur
-            var movieName = document.getElementById('movieName').value;
+            var movieName = document.getElementById('movieNameNightStream').value;
             
             // Construire l'URL avec le terme de recherche
             var searchUrl = 'https://nightflix.vip/?s=' + encodeURIComponent(movieName);
@@ -306,5 +314,3 @@
     </script>
 </body>
 </html>
-
-
