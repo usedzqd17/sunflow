@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recherche de films</title>
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -82,30 +76,3 @@
     </script>
 </body>
 </html>
-
-
-<body>
-    <h1>Recherche de film sur Kordoz</h1>
-    <form id="searchForm" action="https://fr.coflix.nu/?s=" method="get" target="_blank">
-        <label for="movieName">Nom du film :</label><br>
-        <input type="text" id="movieName" name="q" required><br><br>
-        <input type="submit" value="Rechercher">
-    </form>
-
-    <script>
-        // Code JavaScript pour intercepter la soumission du formulaire
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            // Empêcher le comportement par défaut du formulaire
-            event.preventDefault();
-            
-            // Récupérer la valeur saisie par l'utilisateur
-            var movieName = document.getElementById('movieName').value;
-            
-            // Rediriger l'utilisateur vers la page de recherche Netflix avec le terme de recherche
-            window.location.href = 'https://www.kordoz.com/x0vrxk57ein/home/kordoz/s?=' + encodeURIComponent(movieName);
-        });
-    </script>
-</body>
-</html>
-
-
