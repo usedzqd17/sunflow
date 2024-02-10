@@ -83,3 +83,113 @@
 </body>
 </html>
 
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de film sur Coflix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recherche de film sur Coflix</h1>
+        <form id="searchForm">
+            <label for="movieName">Nom du film :</label><br>
+            <input type="text" id="movieName" name="q" required><br>
+            <input type="submit" value="Rechercher">
+        </form>
+    </div>
+
+    <script>
+        // Code JavaScript pour intercepter la soumission du formulaire
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            // Empêcher le comportement par défaut du formulaire
+            event.preventDefault();
+            
+            // Récupérer la valeur saisie par l'utilisateur
+            var movieName = document.getElementById('movieName').value;
+            
+            // Construire l'URL avec le terme de recherche
+            var searchUrl = 'https://fr.coflix.nu/?s=' + encodeURIComponent(movieName);
+            
+            // Rediriger l'utilisateur vers le nouveau lien
+            window.location.href = searchUrl;
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de film sur Coflix</title>
+</head>
+<body>
+    <h1>Recherche de film sur Coflix</h1>
+    <form id="searchForm" action="https://www.kordoz.com/x0vrxk57ein/home/kordoz/search/" method="get" target="_blank">
+        <label for="movieName">Nom du film :</label><br>
+        <input type="text" id="movieName" name="q" required><br><br>
+        <input type="submit" value="Rechercher">
+    </form>
+
+    <script>
+        // Code JavaScript pour intercepter la soumission du formulaire
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            // Empêcher le comportement par défaut du formulaire
+            event.preventDefault();
+            
+            // Récupérer la valeur saisie par l'utilisateur
+            var movieName = document.getElementById('movieName').value;
+            
+            // Rediriger l'utilisateur vers la page de recherche Netflix avec le terme de recherche
+            window.location.href = 'https://www.kordoz.com/x0vrxk57ein/home/kordoz/search/' + encodeURIComponent(movieName);
+        });
+    </script>
+</body>
+</html>
+
+
