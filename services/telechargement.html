@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de films</title>
+</head>
+<body>
+
+    <h1>Recherche de films sur Coflix</h1>
+
+    <label for="movieName">Nom du film:</label>
+    <input type="text" id="movieName">
+    <button onclick="searchMovie()">Rechercher</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function searchMovie() {
+            const movieName = document.getElementById('movieName').value;
+            const apiUrl = `https://fr.coflix.nu/${encodeURIComponent(movieName)}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                // Afficher les résultats
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = '';
+
+                if (data.results.length > 0) {
+                    data.results.forEach(movie => {
+                        const movieDiv = document.createElement('div');
+                        movieDiv.textContent = movie.title;
+                        resultDiv.appendChild(movieDiv);
+                    });
+                } else {
+                    resultDiv.textContent = 'Aucun résultat trouvé.';
+                }
+            } catch (error) {
+                console.error('Erreur lors de la recherche de films:', error);
+            }
+        }
+    </script>
+
+</body>
+</html>
 
