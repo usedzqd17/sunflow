@@ -6,7 +6,7 @@
     <title>Recherche de films</title>
 </head>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1>Recherche de film sur Coflix</h1>
-    <form id="searchForm" action="https://fr.coflix.nu/" method="get" target="_blank">
+    <form id="searchForm">
         <label for="movieName">Nom du film :</label><br>
         <input type="text" id="movieName" name="q" required><br><br>
         <input type="submit" value="Rechercher">
@@ -29,11 +29,13 @@
             // Récupérer la valeur saisie par l'utilisateur
             var movieName = document.getElementById('movieName').value;
             
-            // Rediriger l'utilisateur vers la page de recherche Netflix avec le terme de recherche
-            window.location.href = 'https://fr.coflix.nu/' + encodeURIComponent(movieName);
+            // Construire l'URL avec le terme de recherche
+            var searchUrl = 'https://fr.coflix.nu/?s=' + encodeURIComponent(movieName);
+            
+            // Rediriger l'utilisateur vers le nouveau lien
+            window.location.href = searchUrl;
         });
     </script>
 </body>
 </html>
-
 
