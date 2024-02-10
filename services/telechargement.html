@@ -170,7 +170,7 @@
 </head>
 <body>
     <h1>Recherche de film sur Coflix</h1>
-    <form id="searchForm" action="https://www.kordoz.com/x0vrxk57ein/home/kordoz/search/" method="get" target="_blank">
+    <form id="searchForm" action="https://www.kordoz.com/x0vrxk57ein/home/kordoz/search/s?=" method="get" target="_blank">
         <label for="movieName">Nom du film :</label><br>
         <input type="text" id="movieName" name="q" required><br><br>
         <input type="submit" value="Rechercher">
@@ -186,7 +186,7 @@
             var movieName = document.getElementById('movieName').value;
             
             // Rediriger l'utilisateur vers la page de recherche Netflix avec le terme de recherche
-            window.location.href = 'https://www.kordoz.com/x0vrxk57ein/home/kordoz/search/' + encodeURIComponent(movieName);
+            window.location.href = 'https://www.kordoz.com/x0vrxk57ein/home/kordoz/s?=' + encodeURIComponent(movieName);
         });
     </script>
 </body>
