@@ -3,19 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de contact</title>
+    <title>Envoi de photo par e-mail</title>
 </head>
 <body>
-    <h2>Formulaire de contact</h2>
-    <form action="mailto:raphaelpotie7@gmail.com" method="post" enctype="text/plain">
-        <label for="nom">Nom :</label><br>
-        <input type="text" id="nom" name="nom"><br>
-        <label for="prenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom"><br><br>
-        <input type="submit" value="Envoyer">
+    <h2>Envoyer une photo par e-mail</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" accept="image/*">
+        <input type="submit" name="submit" value="Envoyer">
     </form>
+
+    <?php
+    if (isset($_POST['submit'])) {
+        // Adresse e-mail de destination
+        $toEmail = 'raphaelpotie7@gmail.com';
+
+        // Sujet de l'e-mail
+        $subject = 'Nouvelle photo envoyée';
+
+        // Contenu de l'e-mail
+        $message = 'Veuillez trouver la photo ci-jointe.';
+
+        // Chemin du fichier temporaire
+        $fileTmpPath = $_FILES['photo']['tmp_name'];
+
+        // Nom du fichier
+        $fileName = $_FILES['photo']['name'];
+
+        // Type de fichier
+        $fileType = $_FILES['photo']['type'];
+
+        // Vérifier si le fichier est bien une image
+        if (exif_imagetype($fileTmpPath) !== false) {
+            // Lecture du contenu du fichier
+            $content = file_get_contents($fileTmpPath);
+
+            // Encodage base64 du contenu du fichier
+            $contentEncoded = chunk_split(base64_encode($content));
+
+            // Création de l'en-tête pour l'e-mail
+            $headers = "From: sender@example.com\r\n";
+            $headers .= "Reply-To: sender@example.com\r\n";
+            $headers .= "Content-Type: multipart/mixed; boundary=\"PHP-mixed-".md5(time())."\"";
+
+            // Construction du message avec la pièce jointe
+            $message = "--PHP-mixed-".md5(time())."\r\n";
+            $message .= "Content-Type: multipart/alternative; boundary=\"PHP-alt-".md5(time())."\"\r\n\r\n";
+            $message .= "--PHP-alt-".md5(time())."\r\n";
+            $message .= "Content-Type: text/plain; charset=\"iso-8859-1\"\r\n";
+            $message .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+            $message .= "Veuillez trouver la photo ci-jointe.\r\n";
+            $message .= "--PHP-alt-".md5(time())."\r\n";
+            $message .= "Content-Type: ".$fileType."; name=\"".$fileName."\"\r\n";
+            $message .= "Content-Transfer-Encoding: base64\r\n";
+            $message .= "Content-Disposition: attachment\r\n\r\n";
+            $message .= $contentEncoded."\r\n";
+            $message .= "--PHP-mixed-".md5(time())."--";
+
+            // Envoi de l'e-mail avec la pièce jointe
+            if (mail($toEmail, $subject, $message, $headers)) {
+                echo "<p>La photo a été envoyée avec succès.</p>";
+            } else {
+                echo "<p>Une erreur s'est produite lors de l'envoi de l'e-mail.</p>";
+            }
+        } else {
+            echo "<p>Le fichier n'est pas une image valide.</p>";
+        }
+    }
+    ?>
 </body>
 </html>
+
 
 <!DOCTYPE html>
 <html lang="en">
