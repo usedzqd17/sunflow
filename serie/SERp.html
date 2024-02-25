@@ -61,17 +61,17 @@
 
 <nav class="menu">
   <ul>
-    <li><a href="https://usedzqd17.github.io/sunflow/index.html">acceuil</a></li>
+    <li><a href="https://usedzqd17.github.io/sunflow/index.html">Accueil</a></li>
     <li><a href="">Services</a>
       <ul>
-        <li><a href="https://usedzqd17.github.io/sunflow/films.html">Films</a></li>
+        <li><a href="https://usedzqd17.github.io/sunflow/index.html">Films</a></li>
         <li><a href="https://usedzqd17.github.io/sunflow/serie/SERp.html">Séries</a></li>
-	 <li><a href="https://usedzqd17.github.io/sunflow/sunflow/services/Panime">Anime</a></li>
+	 <li><a href="https://usedzqd17.github.io/sunflow/services/Panime">Anime</a></li>
         <li><a href="https://usedzqd17.github.io/sunflow/services/AdminOnly.html">Admin</a></li>
       </ul>
     </li>
     <li><a href="https://usedzqd17.github.io/sunflow/services/propos.html">À Propos</a></li>
-    <li><a href="https://github.com/usedzqd17/sunflow/issues/new">Contact</a></li>
+    <li><a href="https://discord.gg/mXDwsdYS">Contact</a></li>
   </ul>
 </nav>
 
@@ -83,11 +83,69 @@
 </html>
 
 
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-<style>
+  <title></title>
+  <link rel="stylesheet" href="dzz1.css">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title> </title></title>
+  <link rel="stylesheet" href="dzz1.css">
+  <style>
+    /* Votre CSS va ici */
+  </style>
+</head>
+<body>
+  <script>
+    // Définition du mot de passe
+    var motDePasse = "pierre";
+
+    // Nombre d'essais autorisés
+    var nombreEssaisAutorises = 3;
+
+    // Nombre d'essais effectués
+    var nombreEssais = 0;
+
+    // Fonction pour vérifier le mot de passe
+    function verifierMotDePasse() {
+      var motDePasseSaisi = prompt("Entrez le mot de passe :");
+
+      // Vérifier si le mot de passe est correct
+      if (motDePasseSaisi !== motDePasse) {
+        nombreEssais++;
+        if (nombreEssais >= nombreEssaisAutorises) {
+          // Bloquer l'accès en désactivant les liens
+          var movies = document.querySelectorAll('.movie');
+          movies.forEach(function(movie) {
+            movie.removeAttribute('href');
+          });
+          alert("Trop d'essais incorrects. Accès bloqué.");
+        } else {
+          alert("Mot de passe incorrect. Il vous reste " + (nombreEssaisAutorises - nombreEssais) + " essai(s).");
+          verifierMotDePasse(); // Demander à nouveau le mot de passe
+        }
+      }
+    }
+
+    // Appeler la fonction de vérification du mot de passe au chargement de la page
+    window.onload = verifierMotDePasse;
+  </script>
+  <header>
+    <h1>Streaming FR</h1>
+    <!-- Champ de recherche -->
+    <input type="text" id="searchInput" placeholder="Rechercher un film...">
+  </header>
+  <div class="movies-container">
+    <!-- Vos balises <a> pour les films vont ici -->
+  </div>
+</body>
+</html>
+  
+  <style>
     body {
       margin: 0;
       padding: 0;
@@ -120,43 +178,42 @@
     }
   </style>
 </head>
+<body>
+  <header>
+    <h1></h1>
+    <!-- Champ de recherche -->
+    </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var searchInput = document.getElementById('searchInput');
+      var movies = document.querySelectorAll('.movie');
 
+      searchInput.addEventListener('input', function() {
+        var searchText = this.value.trim().toLowerCase();
 
+        movies.forEach(function(movie) {
+          var title = movie.querySelector('span').textContent.toLowerCase();
+          var isMatch = title.includes(searchText);
+
+          if (isMatch) {
+            movie.style.display = 'block';
+          } else {
+            movie.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affichage de l'iframe</title>
-    <style>
-        /* Style pour l'iframe */
-        .iframe-container {
-            position: relative;
-            width: 60x; /* Largeur de l'iframe */
-            height: 500000px; /* Hauteur souhaitée de l'iframe */
-            overflow: hidden;
-        }
-
-        .iframe-container iframe {
-            position: absolute;
-            top: -90px; /* Ajustez cette valeur pour modifier la partie visible */
-            left: 0;
-            width: 87%;
-            height: 880px; /* Hauteur originale de l'iframe */
-        }
-    </style>
-</head>
-
-    
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bientôt</title>
-</head>
 <body>
+  <header>
+    <h1></h1>
+  </header>
 	<a href="https://usedzqd17.github.io/sunflow/serie/loki.html" class="movie">
 		<img src="https://www.marvel-cineverse.fr/medias/images/godloki-imgprofil.jpg" alt="Loki">
 		<span>Loki</span>
