@@ -84,3 +84,32 @@
               <img src="" alt="">
               <span> Detroit Become Human </span>
             </a>
+
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remplacement de mot dans l'URL</title>
+</head>
+<body>
+
+<input type="text" id="searchInput" placeholder="Entrez votre mot">
+<button onclick="search()">Rechercher</button>
+
+<script>
+function search() {
+    var searchInput = document.getElementById("searchInput").value;
+    // Vérifier si la saisie est vide
+    if (searchInput.trim() !== "") {
+        // Remplacer le mot dans l'URL
+        var newURL = "https://steamrip.com/?s=" + encodeURIComponent(searchInput);
+        // Rediriger vers le nouvel URL
+        window.location.href = newURL;
+    }
+}
+</script>
+
+</body>
+</html>
+
