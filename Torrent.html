@@ -1,91 +1,22 @@
   
-    <h1>Streaming FR</h1>
-    <!-- Champ de recherche -->
-    <input type="text" id="searchInput" placeholder="Rechercher un film...">
-  </header>
-  <div class="movies-container">
-    <!-- Vos balises <a> pour les films vont ici -->
-  </div>
-</body>
-</html>
-  
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url('https://img.freepik.com/vecteurs-premium/epee-ange-dans-fond-noir_121930-195.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 1000vh;
-    }
-    header {
-      text-align: center;
-      color: white;
-    }
-    .movies-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .movie {
-      margin: 10px;
-      text-align: center;
-    }
-    .movie img {
-      width: 160px;
-      height: auto;
-    }
-    .movie span {
-      color: red;
-      display: block;
-    }
-  </style>
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming FR</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS -->
 </head>
 <body>
   <header>
-    <h1></h1>
-    <!-- Champ de recherche -->
-    </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var searchInput = document.getElementById('searchInput');
-      var movies = document.querySelectorAll('.movie');
-
-      searchInput.addEventListener('input', function() {
-        var searchText = this.value.trim().toLowerCase();
-
-        movies.forEach(function(movie) {
-          var title = movie.querySelector('span').textContent.toLowerCase();
-          var isMatch = title.includes(searchText);
-
-          if (isMatch) {
-            movie.style.display = 'block';
-          } else {
-            movie.style.display = 'none';
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<body>
-  <header>
-    <h1></h1>
+    <h1>Streaming FR</h1>
+    <input type="text" id="searchInput" placeholder="Rechercher un film...">
   </header>
-	
-
-	
-	
-	<a href="vpn.html" class="movie">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kxfv28fl0V4WrkRdhU2MKT7WSalH66HhQ&usqp=CAU" alt="">
-              <span> Vpn recommandé </span>
-            </a>
+  <div class="movies-container">
+    <a href="vpn.html" class="movie">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kxfv28fl0V4WrkRdhU2MKT7WSalH66HhQ&usqp=CAU" alt="">
+      <span>VPN recommandé</span>
+    </a>
 
 	<a href="https://www.utorrent.com/intl/fr/" class="movie">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kxfv28fl0V4WrkRdhU2MKT7WSalH66HhQ&usqp=CAU" alt="">
@@ -127,6 +58,17 @@
     
     
     
+
+    <!-- Ajoutez autant d'éléments <a> que nécessaire pour les films -->
+  </div>
+
+  <script src="scripts.js"></script> <!-- Lien vers votre fichier JavaScript -->
+</body>
+</html>
+
+
+	
+
 		
 
 
