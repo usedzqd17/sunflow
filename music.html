@@ -1,49 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vidéos enchaînées</title>
-</head>
-<body>
-  <video id="video1" controls autoplay>
-    <source src="videoplayback.m4a" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture de vidéos.
-  </video>
-  <video id="video2" style="display: none;" controls>
-    <source src="videoplayback (1).m4a" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture de vidéos.
-  </video>
+<audio controls>
+  <source src="videoplayback.m4a" type="audio/mp3">
+  Votre navigateur ne supporte pas l'élément audio.
+</audio>
 
-  <script>
-    var currentVideo = 1;
-    var videos = document.querySelectorAll('video');
-
-    videos.forEach(function(video) {
-      video.addEventListener('ended', function() {
-        // Passer à la vidéo suivante
-        currentVideo++;
-        if (currentVideo <= videos.length) {
-          // Masquer la vidéo actuelle et afficher la suivante
-          document.getElementById('video' + (currentVideo - 1)).style.display = 'none';
-          document.getElementById('video' + currentVideo).style.display = 'block';
-          // Lancer la lecture de la vidéo suivante
-          document.getElementById('video' + currentVideo).play();
-        } else {
-          // Si nous avons atteint la dernière vidéo, revenir à la première vidéo
-          currentVideo = 1;
-          document.getElementById('video' + videos.length).style.display = 'none';
-          document.getElementById('video1').style.display = 'block';
-          document.getElementById('video1').play();
-        }
-      });
-    });
-  </script>
-</body>
-</html>
 
 
 <audio controls>
-  <source src="" type="audio/mp3">
+  <source src="videoplayback (1).m4a" type="audio/mp3">
   Votre navigateur ne supporte pas l'élément audio.
 </audio>
