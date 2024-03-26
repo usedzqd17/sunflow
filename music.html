@@ -6,23 +6,26 @@
   <title>Vidéos enchaînées</title>
 </head>
 <body>
-  <audio id="video1" controls autoplay>
+  <video id="video1" controls autoplay>
     <source src="videoplayback.m4a" type="audio/mp3">
     Votre navigateur ne supporte pas la lecture de vidéos.
-  </audio>
-
-  <audio id="video2" style="display: none;" controls autoplay>
+  </video>
+  <video id="video2" style="display: none;" controls autoplay>
     <source src="videoplayback (1).m4a" type="audio/mp3">
     Votre navigateur ne supporte pas la lecture de vidéos.
-  </audio>
+  </video>
 
   <script>
-    document.getElementById('video1').addEventListener('ended', function() {
-      document.getElementById('video1').style.display = 'none';
-      document.getElementById('video2').style.display = 'block';
-      document.getElementById('video2').play();
+    var video1 = document.getElementById('video1');
+    var video2 = document.getElementById('video2');
+
+    video1.addEventListener('ended', function() {
+      // Masquer la première vidéo et afficher la deuxième
+      video1.style.display = 'none';
+      video2.style.display = 'block';
+      // Lancer la lecture de la deuxième vidéo
+      video2.play();
     });
   </script>
 </body>
 </html>
-
