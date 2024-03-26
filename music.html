@@ -1,11 +1,28 @@
-<audio controls>
-  <source src="videoplayback.m4a" type="audio/mp3">
-  Votre navigateur ne supporte pas l'élément audio.
-</audio>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidéos enchaînées</title>
+</head>
+<body>
+  <audio id="video1" controls autoplay>
+    <source src="videoplayback.m4a" type="audio/mp3">
+    Votre navigateur ne supporte pas la lecture de vidéos.
+  </audio>
 
+  <audio id="video2" style="display: none;" controls autoplay>
+    <source src="videoplayback (1).m4a" type="audio/mp3">
+    Votre navigateur ne supporte pas la lecture de vidéos.
+  </audio>
 
+  <script>
+    document.getElementById('video1').addEventListener('ended', function() {
+      document.getElementById('video1').style.display = 'none';
+      document.getElementById('video2').style.display = 'block';
+      document.getElementById('video2').play();
+    });
+  </script>
+</body>
+</html>
 
-<audio controls>
-  <source src="videoplayback (1).m4a" type="audio/mp3">
-  Votre navigateur ne supporte pas l'élément audio.
-</audio>
