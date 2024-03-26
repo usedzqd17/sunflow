@@ -6,25 +6,39 @@
   <title>Vidéos enchaînées</title>
 </head>
 <body>
-  <video id="video1" controls autoplay>
+  <audio id="video1" controls autoplay>
     <source src="videoplayback.m4a" type="audio/mp3">
     Votre navigateur ne supporte pas la lecture de vidéos.
-  </video>
-  <video id="video2" style="display: none;" controls autoplay>
+  </audio>
+
+  <audio id="video2" style="display: none;" controls>
     <source src="videoplayback (1).m4a" type="audio/mp3">
     Votre navigateur ne supporte pas la lecture de vidéos.
-  </video>
+  </audio>
+
+  <audio id="video3" style="display: none;" controls>
+    <source src="videoplayback.weba" type="audio/webm">
+    Votre navigateur ne supporte pas la lecture de vidéos.
+  </audio>
 
   <script>
-    var video1 = document.getElementById('video1');
-    var video2 = document.getElementById('video2');
+    var currentVideo = 1;
+    var videos = document.querySelectorAll('audio');
 
-    video1.addEventListener('ended', function() {
-      // Masquer la première vidéo et afficher la deuxième
-      video1.style.display = 'none';
-      video2.style.display = 'block';
-      // Lancer la lecture de la deuxième vidéo
-      video2.play();
+    videos.forEach(function(video) {
+      video.addEventListener('ended', function() {
+        currentVideo++;
+        if (currentVideo <= videos.length) {
+          document.getElementById('video' + (currentVideo - 1)).style.display = 'none';
+          document.getElementById('video' + currentVideo).style.display = 'block';
+          document.getElementById('video' + currentVideo).play();
+        } else {
+          currentVideo = 1;
+          document.getElementById('video' + videos.length).style.display = 'none';
+          document.getElementById('video1').style.display = 'block';
+          document.getElementById('video1').play();
+        }
+      });
     });
   </script>
 </body>
