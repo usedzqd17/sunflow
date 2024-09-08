@@ -3,147 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue</title>
+    <title>Convertisseur d'Alphabet</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-image: url('https://img.freepik.com/vecteurs-premium/epee-ange-dans-fond-noir_121930-195.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 1000vh;
             font-family: Arial, sans-serif;
-            color: white;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
         }
-
-        header {
+        h1 {
             text-align: center;
         }
-
-        .movies-container {
+        .container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            margin-top: 50px;
         }
-
-        .movie {
-            margin: 10px;
-            text-align: center;
-        }
-
-        .movie img {
-            width: 160px;
-            height: auto;
-        }
-
-        .movie span {
-            color: red;
-            display: block;
-        }
-
-        /* Styles pour le menu */
-        .menu {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            paddng: 0;
-        }
-
-        .menu ul li {
-            float: left;
-        }
-
-        .menu ul li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .menu ul li:hover {
-            background-color: #555;
-        }
-
-        .menu ul li:hover ul {
-            display: block;
-        }
-
-        .menu ul li ul {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-        }
-
-        .menu ul li ul li {
-            float: none;
-        }
-
-        .menu ul li ul li a {
-            padding: 12px 16px;
-        }
-
-        .content {
+        .converter {
+            background-color: white;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .update-notice {
-            background-color: #ff0000; /* Rouge */
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            font-size: 18px;
-            margin: 20px;
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
         }
-
-        .update-notice p {
-            margin: 0;
-        }
-
-        .update-notice strong {
-            font-size: 20px;
+        button {
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    
 
-    <nav class="menu">
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="#">Services</a>
-                <ul>
-                    <li><a href="https://usedzqd17.github.io/sunflow/films.html">Films</a></li>
-                    <li><a href="https://usedzqd17.github.io/sunflow/serie/SERp.html">Séries</a></li>
-                    <li><a href="https://usedzqd17.github.io/sunflow/services/Panime">Anime</a></li>
-                    <li><a href="https://usedzqd17.github.io/sunflow/services/AdminOnly.html">Admin</a></li>
-                    <li><a href="https://usedzqd17.github.io/sunflow/music.html">Music</a></li>
-                </ul>
-            </li>
-            <li><a href="https://usedzqd17.github.io/sunflow/services/propos.html">À Propos</a></li>
-            <li><a href="https://usedzqd17.github.io/sunflow/films%20solo/contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<h1>Convertisseur d'Alphabet Inventé</h1>
 
-    <div class="content">
-        <div class="update-notice">
-            <p><strong></strong> MAINTENANCE !</p>
-        </div>
+<div class="container">
+    <div class="converter">
+        <h2>Convertir Alphabet Normal vers Alphabet Inventé</h2>
+        <textarea id="normalInput" placeholder="Tapez votre texte ici..."></textarea>
+        <button onclick="convertToInvented()">Convertir en Alphabet Inventé</button>
+        <textarea id="inventedOutput" placeholder="Résultat en alphabet inventé..." readonly></textarea>
 
-        <div class="movies-container">
-            <a href="Torrent.html" class="movie">
-                <img src="" alt="">
-                <span>Torrent files</span>
-            </a>
-        </div>
+        <h2>Convertir Alphabet Inventé vers Alphabet Normal</h2>
+        <textarea id="inventedInput" placeholder="Tapez le texte en alphabet inventé ici..."></textarea>
+        <button onclick="convertToNormal()">Convertir en Alphabet Normal</button>
+        <textarea id="normalOutput" placeholder="Résultat en alphabet normal..." readonly></textarea>
     </div>
+</div>
+
+<script>
+    const alphabetNormal = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const alphabetInvente = "€)/%&#@£:!(?~^Ø*+-§=¬<>{}|";
+
+    // Fonction pour convertir un texte en alphabet inventé
+    function convertToInvented() {
+        let input = document.getElementById("normalInput").value.toUpperCase();
+        let output = "";
+
+        for (let char of input) {
+            let index = alphabetNormal.indexOf(char);
+            if (index !== -1) {
+                output += alphabetInvente[index];
+            } else {
+                output += char; // Garder les caractères non alphabétiques intacts
+            }
+        }
+        document.getElementById("inventedOutput").value = output;
+    }
+
+    // Fonction pour convertir un texte en alphabet normal
+    function convertToNormal() {
+        let input = document.getElementById("inventedInput").value;
+        let output = "";
+
+        for (let char of input) {
+            let index = alphabetInvente.indexOf(char);
+            if (index !== -1) {
+                output += alphabetNormal[index];
+            } else {
+                output += char; // Garder les caractères non alphabétiques intacts
+            }
+        }
+        document.getElementById("normalOutput").value = output;
+    }
+</script>
+
 </body>
 </html>
